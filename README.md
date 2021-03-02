@@ -18,13 +18,11 @@ devtools::install_github("Otoliths/rnsii")
 
 ## Example
 
-##### Take "Artemisia argyi"
-
-Load the **rnsii** package
+###### Load the **rnsii** package
 ```r
 library("rnsii")
 ```
-###### Search family IDs via family name
+##### Take "Artemisia argyi"
 ```r
 result <- get_nsii(query = "Artemisia argyi")
 ```
