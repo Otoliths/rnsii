@@ -109,3 +109,29 @@ tibble::tibble(result$Specimens)
 # 10 0000670 Artemisia argyi 艾             37.4      114  刘鑫源         1101         中国河北赞皇县     1951 
 # # … with 911 more rows
 ```
+
+
+### How to cite this package
+```r
+citation("rnsii")
+```
+```r
+To cite package ‘rnsii’ in publications use:
+
+  Liuyong Ding (2021). rnsii: Interface to the National Specimen Information Infrastructure. R package version 0.1.0.
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {rnsii: Interface to the National Specimen Information Infrastructure},
+    author = {Liuyong Ding},
+    year = {2021},
+    note = {R package version 0.1.0},
+  }
+```
+
+## Contribution
+
+Contributions to this package are welcome. 
+The preferred method of contribution is through a GitHub pull request. 
+Feel also free to contact us by creating [**an issue**](https://github.com/Otoliths/rnsii/issues).
