@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_nsii.R
 \name{get_nsii}
 \alias{get_nsii}
-\title{Download species for National Specimen Information Infrastructure}
+\title{Download data from the NSII}
 \usage{
 get_nsii(query)
 }

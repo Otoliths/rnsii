@@ -1,4 +1,4 @@
-#' @title Download species for National Specimen Information Infrastructure
+#' @title Download data from the NSII
 #' @description The result returns the detailed information of the queried species, including the scientific name, the Latin name, common name, description, latitude and longitude, etc.
 #' @rdname  get_nsii
 #' @name get_nsii
@@ -32,4 +32,3 @@ get_nsii <- function(query){
   return(res)
 
 }
-
