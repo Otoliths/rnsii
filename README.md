@@ -1,7 +1,7 @@
 This **rnsii** package programatically download Chinese biodiversity data from the National Specimen Information Infrastructure <http://www.nsii.org.cn> .
 
 
-## Installation
+## :arrow\_double\_down: Installation
 
 
 ### Current beta / GitHub release:
@@ -16,7 +16,7 @@ devtools::install_github("Otoliths/rnsii")
 
 ```
 
-## Example
+## :beginner: Example
 
 ###### Load the **rnsii** package
 ```r
@@ -128,7 +128,7 @@ A BibTeX entry for LaTeX users is
   }
 ```
 
-## Contribution
+## :sparkling\_heart: Contribution
 
 Contributions to this package are welcome. 
 The preferred method of contribution is through a GitHub pull request. 
