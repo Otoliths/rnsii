@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_nsii.R
 \name{get_nsii}
 \alias{get_nsii}
-\title{Download occurrence data from the NSII}
+\title{Download specimen data from the NSII}
 \usage{
 get_nsii(query, offset = 0)
 }
@@ -15,7 +15,7 @@ get_nsii(query, offset = 0)
 list
 }
 \description{
-The result returns the detailed information of the queried species, including the scientific name, the Latin name, common name, description, latitude and longitude, etc.
+The result returns the detailed information of the queried species, including the scientific name, the Latin name, common name, description, etc.
 }
 \details{
 Visit the website \url{http://www.nsii.org.cn} for more details.
