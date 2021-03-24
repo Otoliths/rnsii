@@ -18,6 +18,7 @@
 #' @export
 
 get_nsii <- function(query,offset = 0){
+  cat(sprintf("Download  date: %s",Sys.Date()),sep = "\n")
   query <- gsub(" ","%20",query)
   url <- paste0("https://www.cvh.ac.cn/controller/spms/list.php?&taxonName=",query,"&offset=",offset)
   x <- httr::GET(url = url,
