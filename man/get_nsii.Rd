@@ -24,7 +24,7 @@ Visit the website \url{http://www.nsii.org.cn} for more details.
 \dontrun{
 result <- get_nsii(query = "Artemisia argyi",offset = 0)
 str(result)
-tibble::tibble(result$row)
+tibble::tibble(result$data)
 }
 }
 \author{
