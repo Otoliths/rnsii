@@ -23,8 +23,66 @@ devtools::install_github("Otoliths/rnsii")
 library("rnsii")
 ```
 ##### Take "Artemisia argyi"
+
+###### Download specimen data from the NSII
+
 ```r
-result <- get_nsii(query = "Artemisia argyi")
+result1 <- get_nsii(query = "Artemisia argyi",offset = 0)
+```
+```r
+# Download  date: 2021-03-25
+# No encoding supplied: defaulting to UTF-8.
+# Query successfully: Artemisia argyi(1796)
+```
+```r
+str(result1)
+```
+```r
+# List of 5
+# $ from  : chr "国家植物标本资源库"
+# $ total : int 1796
+# $ offset: int 0
+# $ limit : int 30
+# $ data  :'data.frame':	30 obs. of  13 variables:
+#   ..$ collectionID   : chr [1:30] "bca470dc" "bca47178" "bca47214" "bca472b0" ...
+# ..$ institutionCode: chr [1:30] "WUK" "WUK" "WUK" "WUK" ...
+# ..$ collectionCode : chr [1:30] "0357558" "0371743" "0365274" "0356022" ...
+# ..$ canonicalName  : chr [1:30] "Artemisia argyi" "Artemisia argyi" "Artemisia argyi" "Artemisia argyi" ...
+# ..$ formattedName  : chr [1:30] "<em>Artemisia argyi</em>  <em></em>  <em></em>" "<em>Artemisia argyi</em>  <em></em>  <em></em>" "<em>Artemisia argyi</em>  <em></em>  <em></em>" "<em>Artemisia argyi</em>  <em></em>  <em></em>" ...
+# ..$ chineseName    : chr [1:30] "艾" "艾" "艾" "艾" ...
+# ..$ recordNumber   : chr [1:30] "11193" "10505" "18245" "8733" ...
+# ..$ year           : chr [1:30] "1959" "1959" "1978" "1959" ...
+# ..$ recordedBy     : chr [1:30] "李培元" "张志英" "张志英" "李培元" ...
+# ..$ country        : chr [1:30] "中国" "中国" "中国" "中国" ...
+# ..$ stateProvince  : chr [1:30] "湖北省" "甘肃省" "陕西省" "陕西省" ...
+# ..$ withPhoto      : chr [1:30] "0" "0" "0" "0" ...
+# ..$ isType         : chr [1:30] "0" "0" "0" "0" ..
+```
+```r
+tibble::tibble(result1$data)
+```
+
+```r
+# # A tibble: 30 x 13
+# collectionID institutionCode collectionCode canonicalName  formattedName chineseName recordNumber
+# <chr>        <chr>           <chr>          <chr>          <chr>         <chr>       <chr>       
+#   1 bca470dc     WUK             0357558        Artemisia arg… <em>Artemisi… 艾          11193       
+# 2 bca47178     WUK             0371743        Artemisia arg… <em>Artemisi… 艾          10505       
+# 3 bca47214     WUK             0365274        Artemisia arg… <em>Artemisi… 艾          18245       
+# 4 bca472b0     WUK             0356022        Artemisia arg… <em>Artemisi… 艾          8733        
+# 5 bca4734b     WUK             0405413        Artemisia arg… <em>Artemisi… 艾          3069        
+# 6 bca473e5     WUK             0354634        Artemisia arg… <em>Artemisi… 艾          7229        
+# 7 bdaf9f8f     WUK             0374515        Artemisia arg… <em>Artemisi… 艾          13693       
+# 8 bdafa02b     WUK             0360427        Artemisia arg… <em>Artemisi… 艾          10905       
+# 9 bdafa0c7     WUK             0288094        Artemisia arg… <em>Artemisi… 艾          2089        
+# 10 bdafa164     WUK             0282248        Artemisia arg… <em>Artemisi… 艾          27          
+# # … with 20 more rows, and 6 more variables: year <chr>, recordedBy <chr>, country <chr>,
+# #   stateProvince <chr>, withPhoto <chr>, isType <chr>
+```
+###### Download occurrence data from the NSII
+
+```r
+result2 <- get_occ(query = "Artemisia argyi")
 ```
 ```r
 # Download  date: 2021-03-03
@@ -33,7 +91,7 @@ result <- get_nsii(query = "Artemisia argyi")
 ```
 
 ```r
-str(result)
+str(result2)
 ```
 ```r
 # List of 10
@@ -64,7 +122,7 @@ str(result)
 ```
 
 ```r
-tibble::tibble(result$Specimens)
+tibble::tibble(result2$Specimens)
 ```
 ```r
 # List of 10
