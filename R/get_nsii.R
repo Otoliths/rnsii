@@ -7,8 +7,10 @@
 #' @return list
 #' @author Liuyong Ding
 #' @details Visit the website \url{http://www.nsii.org.cn} for more details.
-#' @importFrom RCurl postForm
+#' @importFrom httr GET
+#' @importFrom httr add_headers
 #' @importFrom jsonlite fromJSON
+#' @importFrom rlist list.stack
 #' @examples
 #' \dontrun{
 #' result <- get_nsii(query = "Artemisia argyi",offset = 0)
