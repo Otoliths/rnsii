@@ -1,6 +1,6 @@
 #' @title Download occurrence data from the NSII
 #' @description The result returns the detailed information of the queried species, including the scientific name, the Latin name, common name, description, latitude and longitude, etc.
-#' @rdname  get_occ
+#' @rdname get_occ
 #' @name get_occ
 #' @param query \code{character} Only single Latin name is queried.
 #' @return list

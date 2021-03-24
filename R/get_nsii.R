@@ -1,6 +1,6 @@
 #' @title Download specimen data from the NSII
 #' @description The result returns the detailed information of the queried species, including the scientific name, the Latin name, common name, description, etc.
-#' @rdname  get_nsii
+#' @rdname get_nsii
 #' @name get_nsii
 #' @param query \code{character} Only single Latin name is queried.
 #' @param offset \code{numeric} Query page number.The default value is 0, which corresponds to the first page, each query returns 30.
