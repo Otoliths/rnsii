@@ -26,5 +26,5 @@ tibble::tibble(result$Specimens)
 }
 }
 \author{
-Liuyong Ding
+Liuyong Ding <ly_ding@126.com>
 }

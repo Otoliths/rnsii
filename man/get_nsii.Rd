@@ -28,5 +28,5 @@ tibble::tibble(result$data)
 }
 }
 \author{
-Liuyong Ding
+Liuyong Ding <ly_ding@126.com>
 }
