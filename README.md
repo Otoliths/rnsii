@@ -1,3 +1,5 @@
+## rnsii <img src="inst/figures/rnsii.png" align="right" width="140" />
+
 This **rnsii** package programatically download Chinese biodiversity data from the National Specimen Information Infrastructure <http://www.nsii.org.cn> .
 
 
