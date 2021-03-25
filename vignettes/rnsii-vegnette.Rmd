@@ -1,0 +1,74 @@
+---
+title: "Mining China biodiversity from the National Specimen Information Infrastructure"
+author: "Liuyong Ding"
+date: "3/25/2021"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Mining China biodiversity from the National Specimen Information Infrastructure}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+This **rnsii** package programatically download Chinese biodiversity data from the National Specimen Information Infrastructure <http://www.nsii.org.cn> .
+
+
+## Installation
+
+
+### Current beta / GitHub release:
+
+Installation using R package
+[**devtools**](https://cran.r-project.org/package=devtools):
+```{r}
+if (!requireNamespace(c("devtools","tibble"), quietly = TRUE))
+  install.packages("devtools","tibble")
+    
+devtools::install_github("Otoliths/rnsii")
+
+```
+
+##  Example
+
+###### Load the **rnsii** package
+```{r}
+library("rnsii")
+```
+##### Take "Artemisia argyi"
+
+###### Download specimen data from the NSII
+
+```{r}
+result1 <- get_nsii(query = "Artemisia argyi",offset = 0)
+```
+
+```{r}
+str(result1)
+```
+
+```{r}
+tibble::tibble(result1$data)
+```
+
+
+###### Download occurrence data from the NSII
+
+```{r}
+result2 <- get_occ(query = "Artemisia argyi")
+```
+
+
+```{r}
+str(result2)
+```
+
+## How to cite this package
+```{r}
+citation("rnsii")
+```
+
+
+##  Contribution
+
+Contributions to this package are welcome. 
+The preferred method of contribution is through a GitHub pull request. 
+Feel also free to contact us by creating [**an issue**](https://github.com/Otoliths/rnsii/issues).
