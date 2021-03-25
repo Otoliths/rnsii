@@ -5,7 +5,7 @@
 #' @param query \code{character} Only single Latin name is queried.
 #' @param offset \code{numeric} Query page number.The default value is 0, which corresponds to the first page, each query returns 30.
 #' @return list
-#' @author Liuyong Ding
+#' @author Liuyong Ding <ly_ding@126.com>
 #' @details Visit the website \url{http://www.nsii.org.cn} for more details.
 #' @importFrom httr GET
 #' @importFrom httr add_headers
@@ -16,7 +16,7 @@
 #' \dontrun{
 #' result <- get_nsii(query = "Artemisia argyi",offset = 0)
 #' str(result)
-#' tibble::tibble(result$row)
+#' tibble::tibble(result$data)
 #' }
 #' @export
 

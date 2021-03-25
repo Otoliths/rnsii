@@ -4,7 +4,7 @@
 #' @name get_occ
 #' @param query \code{character} Only single Latin name is queried.
 #' @return list
-#' @author Liuyong Ding
+#' @author Liuyong Ding <ly_ding@126.com>
 #' @details Visit the website \url{http://www.nsii.org.cn} for more details.
 #' @importFrom RCurl postForm
 #' @importFrom jsonlite fromJSON
