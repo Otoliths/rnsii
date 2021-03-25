@@ -12,7 +12,7 @@ Installation using R package
 if (!requireNamespace(c("devtools","tibble"), quietly = TRUE))
   install.packages("devtools","tibble")
     
-devtools::install_github("Otoliths/rnsii")
+devtools::install_github("Otoliths/rnsii",build_vignettes = TRUE)
 
 ```
 
