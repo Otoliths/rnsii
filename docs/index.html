@@ -71,7 +71,187 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-This package is designed for mining China biodiversity from the National Specimen Information Infrastructure.
+
+<p>This <strong>rnsii</strong> package programatically download Chinese biodiversity data from the National Specimen Information Infrastructure <a href="http://www.nsii.org.cn" class="uri">http://www.nsii.org.cn</a> .</p>
+<div id="arrow_double_down-installation" class="section level2">
+<h2 class="hasAnchor">
+<a href="#arrow_double_down-installation" class="anchor"></a><span class="emoji" data-emoji="arrow_double_down">⏬</span> Installation</h2>
+<div id="current-beta--github-release" class="section level3">
+<h3 class="hasAnchor">
+<a href="#current-beta--github-release" class="anchor"></a>Current beta / GitHub release:</h3>
+<p>Installation using R package <a href="https://cran.r-project.org/package=devtools"><strong>devtools</strong></a>:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"devtools"</span>,<span class="st">"tibble"</span><span class="op">)</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span>,<span class="st">"tibble"</span><span class="op">)</span>
+    
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"Otoliths/rnsii"</span>,build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+</div>
+</div>
+<div id="beginner-example" class="section level2">
+<h2 class="hasAnchor">
+<a href="#beginner-example" class="anchor"></a><span class="emoji" data-emoji="beginner">🔰</span> Example</h2>
+<div id="load-the-rnsii-package" class="section level6">
+<h6>Load the <strong>rnsii</strong> package</h6>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st">"rnsii"</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="take-artemisia-argyi" class="section level5">
+<h5 class="hasAnchor">
+<a href="#take-artemisia-argyi" class="anchor"></a>Take “Artemisia argyi”</h5>
+<div id="download-specimen-data-from-the-nsii" class="section level6">
+<h6>Download specimen data from the NSII</h6>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">result1</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_nsii.html">get_nsii</a></span><span class="op">(</span>query <span class="op">=</span> <span class="st">"Artemisia argyi"</span>,offset <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Download  date: 2021-03-25</span>
+<span class="co"># No encoding supplied: defaulting to UTF-8.</span>
+<span class="co"># Query successfully: Artemisia argyi(1796)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">result1</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># List of 5</span>
+<span class="co"># $ from  : chr "国家植物标本资源库"</span>
+<span class="co"># $ total : int 1796</span>
+<span class="co"># $ offset: int 0</span>
+<span class="co"># $ limit : int 30</span>
+<span class="co"># $ data  :'data.frame':    30 obs. of  13 variables:</span>
+<span class="co">#   ..$ collectionID   : chr [1:30] "bca470dc" "bca47178" "bca47214" "bca472b0" ...</span>
+<span class="co"># ..$ institutionCode: chr [1:30] "WUK" "WUK" "WUK" "WUK" ...</span>
+<span class="co"># ..$ collectionCode : chr [1:30] "0357558" "0371743" "0365274" "0356022" ...</span>
+<span class="co"># ..$ canonicalName  : chr [1:30] "Artemisia argyi" "Artemisia argyi" "Artemisia argyi" "Artemisia argyi" ...</span>
+<span class="co"># ..$ formattedName  : chr [1:30] "&lt;em&gt;Artemisia argyi&lt;/em&gt;  &lt;em&gt;&lt;/em&gt;  &lt;em&gt;&lt;/em&gt;" "&lt;em&gt;Artemisia argyi&lt;/em&gt;  &lt;em&gt;&lt;/em&gt;  &lt;em&gt;&lt;/em&gt;" "&lt;em&gt;Artemisia argyi&lt;/em&gt;  &lt;em&gt;&lt;/em&gt;  &lt;em&gt;&lt;/em&gt;" "&lt;em&gt;Artemisia argyi&lt;/em&gt;  &lt;em&gt;&lt;/em&gt;  &lt;em&gt;&lt;/em&gt;" ...</span>
+<span class="co"># ..$ chineseName    : chr [1:30] "艾" "艾" "艾" "艾" ...</span>
+<span class="co"># ..$ recordNumber   : chr [1:30] "11193" "10505" "18245" "8733" ...</span>
+<span class="co"># ..$ year           : chr [1:30] "1959" "1959" "1978" "1959" ...</span>
+<span class="co"># ..$ recordedBy     : chr [1:30] "李培元" "张志英" "张志英" "李培元" ...</span>
+<span class="co"># ..$ country        : chr [1:30] "中国" "中国" "中国" "中国" ...</span>
+<span class="co"># ..$ stateProvince  : chr [1:30] "湖北省" "甘肃省" "陕西省" "陕西省" ...</span>
+<span class="co"># ..$ withPhoto      : chr [1:30] "0" "0" "0" "0" ...</span>
+<span class="co"># ..$ isType         : chr [1:30] "0" "0" "0" "0" ..</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span><span class="va">result1</span><span class="op">$</span><span class="va">data</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># # A tibble: 30 x 13</span>
+<span class="co"># collectionID institutionCode collectionCode canonicalName  formattedName chineseName recordNumber</span>
+<span class="co"># &lt;chr&gt;        &lt;chr&gt;           &lt;chr&gt;          &lt;chr&gt;          &lt;chr&gt;         &lt;chr&gt;       &lt;chr&gt;       </span>
+<span class="co">#   1 bca470dc     WUK             0357558        Artemisia arg… &lt;em&gt;Artemisi… 艾          11193       </span>
+<span class="co"># 2 bca47178     WUK             0371743        Artemisia arg… &lt;em&gt;Artemisi… 艾          10505       </span>
+<span class="co"># 3 bca47214     WUK             0365274        Artemisia arg… &lt;em&gt;Artemisi… 艾          18245       </span>
+<span class="co"># 4 bca472b0     WUK             0356022        Artemisia arg… &lt;em&gt;Artemisi… 艾          8733        </span>
+<span class="co"># 5 bca4734b     WUK             0405413        Artemisia arg… &lt;em&gt;Artemisi… 艾          3069        </span>
+<span class="co"># 6 bca473e5     WUK             0354634        Artemisia arg… &lt;em&gt;Artemisi… 艾          7229        </span>
+<span class="co"># 7 bdaf9f8f     WUK             0374515        Artemisia arg… &lt;em&gt;Artemisi… 艾          13693       </span>
+<span class="co"># 8 bdafa02b     WUK             0360427        Artemisia arg… &lt;em&gt;Artemisi… 艾          10905       </span>
+<span class="co"># 9 bdafa0c7     WUK             0288094        Artemisia arg… &lt;em&gt;Artemisi… 艾          2089        </span>
+<span class="co"># 10 bdafa164     WUK             0282248        Artemisia arg… &lt;em&gt;Artemisi… 艾          27          </span>
+<span class="co"># # … with 20 more rows, and 6 more variables: year &lt;chr&gt;, recordedBy &lt;chr&gt;, country &lt;chr&gt;,</span>
+<span class="co"># #   stateProvince &lt;chr&gt;, withPhoto &lt;chr&gt;, isType &lt;chr&gt;</span></code></pre></div>
+</div>
+<div id="download-occurrence-data-from-the-nsii" class="section level6">
+<h6>Download occurrence data from the NSII</h6>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">result2</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_occ.html">get_occ</a></span><span class="op">(</span>query <span class="op">=</span> <span class="st">"Artemisia argyi"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Download  date: 2021-03-03</span>
+<span class="co"># Query successfully: Artemisia argyi</span>
+<span class="co"># Include latitude and longitude: Artemisia argyi</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">result2</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># List of 10</span>
+<span class="co"># $ Title      : chr "Artemisia argyi"</span>
+<span class="co"># $ Description: chr "多年生草本或略成半灌木状，植株有浓烈香气。主根明显，略粗长，直径达1.5厘米，侧根多；常有横卧地下根状茎及营养枝。"| __truncated__</span>
+<span class="co"># $ QueryName  : chr "Artemisia argyi"</span>
+<span class="co"># $ LatinName  : chr "Artemisia argyi"</span>
+<span class="co"># $ CommonName : chr "艾"</span>
+<span class="co"># $ Images     :'data.frame':   1 obs. of  5 variables:</span>
+<span class="co">#   ..$ title      : chr "Artemisia argyi"</span>
+<span class="co"># ..$ description: chr ""</span>
+<span class="co"># ..$ type       : chr "image"</span>
+<span class="co"># ..$ source     : chr "http://www.nsii.org.cn/eol/eolmedia/13256627.jpg"</span>
+<span class="co"># ..$ url        : chr "http://www.nsii.org.cn"</span>
+<span class="co"># $ Specimens  :'data.frame':   921 obs. of  9 variables:</span>
+<span class="co">#   ..$ barcode     : chr [1:921] "0021954" "0021953" "0021952" "0000681" ...</span>
+<span class="co"># ..$ sname       : chr [1:921] "Artemisia argyi" "Artemisia argyi" "Artemisia argyi" "Artemisia argyi" ...</span>
+<span class="co"># ..$ commonName  : chr [1:921] "艾" "艾" "艾" "艾" ...</span>
+<span class="co"># ..$ latitude    : num [1:921] 29.8 31.6 30.2 31.3 31.3 31.3 33.8 34.1 37.4 37.4 ...</span>
+<span class="co"># ..$ longitude   : num [1:921] 110 111 109 109 109 ...</span>
+<span class="co"># ..$ recordedby  : chr [1:921] "李洪钧" "鄂神农架植考队" "黄仁煌" "方明渊" ...</span>
+<span class="co"># ..$ recordnumber: chr [1:921] "5984" "21740" "3389" "23960" ...</span>
+<span class="co"># ..$ locality    : chr [1:921] "中国湖北鹤峰县" "中国湖北神农架林区" "中国湖北利川市" "中国重庆奉节县" ...</span>
+<span class="co"># ..$ year        : chr [1:921] "1958" "1976" "1975" "1958" ...</span>
+<span class="co"># $ StatusCode : int 0</span>
+<span class="co"># $ Status     : chr "ok"</span>
+<span class="co"># $ Message    : chr ""</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span><span class="va">result2</span><span class="op">$</span><span class="va">Specimens</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># List of 10</span>
+<span class="co"># $ Title      : chr "Artemisia argyi"</span>
+<span class="co"># $ Description: chr "多年生草本或略成半灌木状，植株有浓烈香气。主根明显，略粗长，直径达1.5厘米，侧根多；常有横卧地下根状茎及营养枝。"| __truncated__</span>
+<span class="co"># $ QueryName  : chr "Artemisia argyi"</span>
+<span class="co"># $ LatinName  : chr "Artemisia argyi"</span>
+<span class="co"># $ CommonName : chr "艾"</span>
+<span class="co"># $ Images     :'data.frame':   1 obs. of  5 variables:</span>
+<span class="co">#   ..$ title      : chr "Artemisia argyi"</span>
+<span class="co"># ..$ description: chr ""</span>
+<span class="co"># ..$ type       : chr "image"</span>
+<span class="co"># ..$ source     : chr "http://www.nsii.org.cn/eol/eolmedia/13256627.jpg"</span>
+<span class="co"># ..$ url        : chr "http://www.nsii.org.cn"</span>
+<span class="co"># $ Specimens  :'data.frame':   921 obs. of  9 variables:</span>
+<span class="co">#   ..$ barcode     : chr [1:921] "0021954" "0021953" "0021952" "0000681" ...</span>
+<span class="co"># ..$ sname       : chr [1:921] "Artemisia argyi" "Artemisia argyi" "Artemisia argyi" "Artemisia argyi" ...</span>
+<span class="co"># ..$ commonName  : chr [1:921] "艾" "艾" "艾" "艾" ...</span>
+<span class="co"># ..$ latitude    : num [1:921] 29.8 31.6 30.2 31.3 31.3 31.3 33.8 34.1 37.4 37.4 ...</span>
+<span class="co"># ..$ longitude   : num [1:921] 110 111 109 109 109 ...</span>
+<span class="co"># ..$ recordedby  : chr [1:921] "李洪钧" "鄂神农架植考队" "黄仁煌" "方明渊" ...</span>
+<span class="co"># ..$ recordnumber: chr [1:921] "5984" "21740" "3389" "23960" ...</span>
+<span class="co"># ..$ locality    : chr [1:921] "中国湖北鹤峰县" "中国湖北神农架林区" "中国湖北利川市" "中国重庆奉节县" ...</span>
+<span class="co"># ..$ year        : chr [1:921] "1958" "1976" "1975" "1958" ...</span>
+<span class="co"># $ StatusCode : int 0</span>
+<span class="co"># $ Status     : chr "ok"</span>
+<span class="co"># $ Message    : chr ""</span>
+<span class="co"># # A tibble: 921 x 9</span>
+<span class="co"># barcode sname           commonName latitude longitude recordedby     recordnumber locality           year </span>
+<span class="co"># &lt;chr&gt;   &lt;chr&gt;           &lt;chr&gt;         &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;        &lt;chr&gt;              &lt;chr&gt;</span>
+<span class="co">#   1 0021954 Artemisia argyi 艾             29.8      110. 李洪钧         5984         中国湖北鹤峰县     1958 </span>
+<span class="co"># 2 0021953 Artemisia argyi 艾             31.6      111. 鄂神农架植考队 21740        中国湖北神农架林区 1976 </span>
+<span class="co"># 3 0021952 Artemisia argyi 艾             30.2      109. 黄仁煌         3389         中国湖北利川市     1975 </span>
+<span class="co"># 4 0000681 Artemisia argyi 艾             31.3      109. 方明渊         23960        中国重庆奉节县     1958 </span>
+<span class="co"># 5 0000680 Artemisia argyi 艾             31.3      109  张泽荣         25990        中国重庆奉节县     1958 </span>
+<span class="co"># 6 0000677 Artemisia argyi 艾             31.3      109. 方明渊         24868        中国重庆奉节县     1958 </span>
+<span class="co"># 7 0000676 Artemisia argyi 艾             33.8      108. 张襄明         350          中国陕西周至县     1958 </span>
+<span class="co"># 8 0000675 Artemisia argyi 艾             34.1      108. 张襄明         947          中国陕西眉县       1958 </span>
+<span class="co"># 9 0000671 Artemisia argyi 艾             37.4      114  刘鑫源         914          中国河北赞皇县     1951 </span>
+<span class="co"># 10 0000670 Artemisia argyi 艾             37.4      114  刘鑫源         1101         中国河北赞皇县     1951 </span>
+<span class="co"># # … with 911 more rows</span></code></pre></div>
+</div>
+</div>
+<div id="how-to-cite-this-package" class="section level3">
+<h3 class="hasAnchor">
+<a href="#how-to-cite-this-package" class="anchor"></a>How to cite this package</h3>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span><span class="op">(</span><span class="st">"rnsii"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>To cite package ‘rnsii’ <span class="cf">in</span> publications use<span class="sc">:</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  Liuyong <span class="fu">Ding</span> (<span class="dv">2021</span>). rnsii<span class="sc">:</span> Interface to the National Specimen Information Infrastructure. R package version <span class="dv">0</span>.<span class="dv">1</span>.<span class="fl">0.</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>A BibTeX entry <span class="cf">for</span> LaTeX users is</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="sc">@</span>Manual{,</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    title <span class="ot">=</span> {rnsii<span class="sc">:</span> Interface to the National Specimen Information Infrastructure},</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    author <span class="ot">=</span> {Liuyong Ding},</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    year <span class="ot">=</span> {<span class="dv">2021</span>},</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    note <span class="ot">=</span> {R package version <span class="dv">0</span>.<span class="fl">1.0</span>},</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
+</div>
+</div>
+<div id="heart-contribution" class="section level2">
+<h2 class="hasAnchor">
+<a href="#heart-contribution" class="anchor"></a><span class="emoji" data-emoji="heart">❤️</span> Contribution</h2>
+<p>Contributions to this package are welcome. The preferred method of contribution is through a GitHub pull request. Feel also free to contact us by creating <a href="https://github.com/Otoliths/rnsii/issues"><strong>an issue</strong></a>.</p>
+</div>
+
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
